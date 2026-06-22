@@ -180,3 +180,4 @@ MIT License — free to fork and adapt. ⭐ Star appreciated.
     <img src="./icons/matplotlib.png" width="50" height="50" alt="Matplotlib" style="margin-bottom: 5px;" />
   </a>
 </p>
+<img src="./icons/excel.png" width="50" height="50" alt="Excel" />
