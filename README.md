@@ -115,3 +115,9 @@ MIT License — free to fork and adapt. ⭐ Star appreciated.
 ![ABC Analysis](https://img.shields.io/badge/ABC%20Analysis-15803d?style=for-the-badge&logo=analytics&logoColor=white)
 ![Contract Management](https://img.shields.io/badge/Contract%20Management-166534?style=for-the-badge&logo=clipboard&logoColor=white)
 ![Strategic Sourcing](https://img.shields.io/badge/Strategic%20Sourcing-14532d?style=for-the-badge&logo=search&logoColor=white)
+#### 📊 Analytics & Tools
+![Microsoft Excel](https://img.shields.io/badge/Microsoft%20Excel-217346?style=for-the-badge&logo=microsoft-excel&logoColor=white)
+![Power BI](https://img.shields.io/badge/Power%20BI-F2C811?style=for-the-badge&logo=powerbi&logoColor=black)
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
