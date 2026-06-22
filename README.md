@@ -1,4 +1,4 @@
-<img width="128" height="128" alt="excel" src="https://github.com/user-attachments/assets/cc5a206c-bc25-4c1f-8396-1f1cb13ecb13" />
+
 # ☕ Ghana Procurement Management System — Java
 
 > A command-line procurement management system built in Java — linking all 7 portfolio projects into one program.
@@ -109,63 +109,3 @@ Built as part of the `code-practice` polyglot repo — demonstrating Java OOP in
 MIT License — free to fork and adapt. ⭐ Star appreciated.
 
 *Made in Kumasi, Ghana 🇬🇭*
-#### 📦 Procurement & Supply Chain
-<p align="left">
-  <a href="#" target="_blank">
-    <img src="./icons/ghana-ppa.png" width="50" height="50" alt="Ghana PPA" style="margin-bottom: 5px;" />
-  </a>
-  <a href="#" target="_blank">
-    <img src="./icons/ghana-egp.png" width="50" height="50" alt="Ghana e-GP" style="margin-bottom: 5px;" />
-  </a>
-  <a href="#" target="_blank">
-    <img src="./icons/eoq.png" width="50" height="50" alt="EOQ Modelling" style="margin-bottom: 5px;" />
-  </a>
-  <a href="#" target="_blank">
-    <img src="./icons/abc-analysis.png" width="50" height="50" alt="ABC Analysis" style="margin-bottom: 5px;" />
-  </a>
-  <a href="#" target="_blank">
-    <img src="./icons/contract-management.png" width="50" height="50" alt="Contract Management" style="margin-bottom: 5px;" />
-  </a>
-  <a href="#" target="_blank">
-    <img src="./icons/strategic-sourcing.png" width="50" height="50" alt="Strategic Sourcing" style="margin-bottom: 5px;" />
-  </a>
-</p>
-
-#### 📊 Analytics & Tools
-<p align="left">
-  <a href="https://www.microsoft.com/microsoft-365/excel" target="_blank">
-    <img src="./icons/excel.png" width="50" height="50" alt="Microsoft Excel" style="margin-bottom: 5px;" />
-  </a>
-  <a href="https://powerbi.microsoft.com/" target="_blank">
-    <img src="./icons/powerbi.png" width="50" height="50" alt="Power BI" style="margin-bottom: 5px;" />
-  </a>
-  <a href="https://www.python.org/" target="_blank">
-    <img src="./icons/python.png" width="50" height="50" alt="Python" style="margin-bottom: 5px;" />
-  </a>
-  <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
-    <img src="./icons/javascript.png" width="50" height="50" alt="JavaScript" style="margin-bottom: 5px;" />
-  </a>
-  <a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank">
-    <img src="./icons/html5.png" width="50" height="50" alt="HTML5" style="margin-bottom: 5px;" />
-  </a>
-</p>
-
-#### ⚙️ ERP Systems
-<img width="128" height="128" alt="excel" src="https://github.com/user-attachments/assets/dee915cd-8df1-4ced-af62-3b9040425510" />
-
-#### 🛠️ Dev & Productivity
-<p align="left">
-  <a href="https://github.com/ofrank-design" target="_blank">
-    <img src="./icons/github.png" width="50" height="50" alt="GitHub" style="margin-bottom: 5px;" />
-  </a>
-  <a href="https://code.visualstudio.com/" target="_blank">
-    <img src="./icons/vscode.png" width="50" height="50" alt="VS Code" style="margin-bottom: 5px;" />
-  </a>
-  <a href="https://learn.microsoft.com/" target="_blank">
-    <img src="./icons/microsoft-learn.png" width="50" height="50" alt="Microsoft Learn" style="margin-bottom: 5px;" />
-  </a>
-  <a href="https://matplotlib.org/" target="_blank">
-    <img src="./icons/matplotlib.png" width="50" height="50" alt="Matplotlib" style="margin-bottom: 5px;" />
-  </a>
-</p>
-<img src="./icons/excel.png" width="50" height="50" alt="Excel" />
