@@ -108,3 +108,75 @@ Built as part of the `code-practice` polyglot repo — demonstrating Java OOP in
 MIT License — free to fork and adapt. ⭐ Star appreciated.
 
 *Made in Kumasi, Ghana 🇬🇭*
+#### 📦 Procurement & Supply Chain
+<p align="left">
+  <a href="#" target="_blank">
+    <img src="./icons/ghana-ppa.svg" width="50" height="50" alt="Ghana PPA" style="margin-bottom: 5px;" />
+  </a>
+  <a href="#" target="_blank">
+    <img src="./icons/ghana-egp.svg" width="50" height="50" alt="Ghana e-GP" style="margin-bottom: 5px;" />
+  </a>
+  <a href="#" target="_blank">
+    <img src="./icons/eoq.svg" width="50" height="50" alt="EOQ Modelling" style="margin-bottom: 5px;" />
+  </a>
+  <a href="#" target="_blank">
+    <img src="./icons/abc-analysis.svg" width="50" height="50" alt="ABC Analysis" style="margin-bottom: 5px;" />
+  </a>
+  <a href="#" target="_blank">
+    <img src="./icons/contract-management.svg" width="50" height="50" alt="Contract Management" style="margin-bottom: 5px;" />
+  </a>
+  <a href="#" target="_blank">
+    <img src="./icons/strategic-sourcing.svg" width="50" height="50" alt="Strategic Sourcing" style="margin-bottom: 5px;" />
+  </a>
+</p>
+
+#### 📊 Analytics & Tools
+<p align="left">
+  <a href="https://www.microsoft.com/microsoft-365/excel" target="_blank">
+    <img src="./icons/excel.svg" width="50" height="50" alt="Microsoft Excel" style="margin-bottom: 5px;" />
+  </a>
+  <a href="https://powerbi.microsoft.com/" target="_blank">
+    <img src="./icons/powerbi.svg" width="50" height="50" alt="Power BI" style="margin-bottom: 5px;" />
+  </a>
+  <a href="https://www.python.org/" target="_blank">
+    <img src="./icons/python.svg" width="50" height="50" alt="Python" style="margin-bottom: 5px;" />
+  </a>
+  <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
+    <img src="./icons/javascript.svg" width="50" height="50" alt="JavaScript" style="margin-bottom: 5px;" />
+  </a>
+  <a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank">
+    <img src="./icons/html5.svg" width="50" height="50" alt="HTML5" style="margin-bottom: 5px;" />
+  </a>
+</p>
+
+#### ⚙️ ERP Systems
+<p align="left">
+  <a href="https://www.sap.com/products/erp/mm.html" target="_blank">
+    <img src="./icons/sap.svg" width="50" height="50" alt="SAP MM" style="margin-bottom: 5px;" />
+  </a>
+  <a href="https://www.odoo.com/" target="_blank">
+    <img src="./icons/odoo.svg" width="50" height="50" alt="Odoo" style="margin-bottom: 5px;" />
+  </a>
+  <a href="https://www.oracle.com/cloud/" target="_blank">
+    <img src="./icons/oracle.svg" width="50" height="50" alt="Oracle Cloud" style="margin-bottom: 5px;" />
+  </a>
+  <a href="https://www.microsoft.com/en-us/dynamics-365" target="_blank">
+    <img src="./icons/dynamics365.svg" width="50" height="50" alt="MS Dynamics 365" style="margin-bottom: 5px;" />
+  </a>
+</p>
+
+#### 🛠️ Dev & Productivity
+<p align="left">
+  <a href="https://github.com/ofrank-design" target="_blank">
+    <img src="./icons/github.svg" width="50" height="50" alt="GitHub" style="margin-bottom: 5px;" />
+  </a>
+  <a href="https://code.visualstudio.com/" target="_blank">
+    <img src="./icons/vscode.svg" width="50" height="50" alt="VS Code" style="margin-bottom: 5px;" />
+  </a>
+  <a href="https://learn.microsoft.com/" target="_blank">
+    <img src="./icons/microsoft-learn.svg" width="50" height="50" alt="Microsoft Learn" style="margin-bottom: 5px;" />
+  </a>
+  <a href="https://matplotlib.org/" target="_blank">
+    <img src="./icons/matplotlib.svg" width="50" height="50" alt="Matplotlib" style="margin-bottom: 5px;" />
+  </a>
+</p>
