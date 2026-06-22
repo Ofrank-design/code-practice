@@ -108,12 +108,3 @@ Built as part of the `code-practice` polyglot repo — demonstrating Java OOP in
 MIT License — free to fork and adapt. ⭐ Star appreciated.
 
 *Made in Kumasi, Ghana 🇬🇭*
-#### 📊 Analytics & Tools
-
-<p>
-  <img src="IMAGE_URL_FOR_EXCEL" alt="Microsoft Excel" width="80" />
-  <img src="IMAGE_URL_FOR_POWERBI" alt="Power BI" width="80" />
-  <img src="IMAGE_URL_FOR_PYTHON" alt="Python" width="80" />
-  <img src="IMAGE_URL_FOR_JS" alt="JavaScript" width="80" />
-  <img src="IMAGE_URL_FOR_HTML5" alt="HTML5" width="80" />
-</p>
