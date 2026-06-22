@@ -1,3 +1,4 @@
+<img width="128" height="128" alt="excel" src="https://github.com/user-attachments/assets/cc5a206c-bc25-4c1f-8396-1f1cb13ecb13" />
 # ☕ Ghana Procurement Management System — Java
 
 > A command-line procurement management system built in Java — linking all 7 portfolio projects into one program.
@@ -150,20 +151,7 @@ MIT License — free to fork and adapt. ⭐ Star appreciated.
 </p>
 
 #### ⚙️ ERP Systems
-<p align="left">
-  <a href="https://www.sap.com/products/erp/mm.html" target="_blank">
-    <img src="./icons/sap.png" width="50" height="50" alt="SAP MM" style="margin-bottom: 5px;" />
-  </a>
-  <a href="https://www.odoo.com/" target="_blank">
-    <img src="./icons/odoo.png" width="50" height="50" alt="Odoo" style="margin-bottom: 5px;" />
-  </a>
-  <a href="https://www.oracle.com/cloud/" target="_blank">
-    <img src="./icons/oracle.png" width="50" height="50" alt="Oracle Cloud" style="margin-bottom: 5px;" />
-  </a>
-  <a href="https://www.microsoft.com/en-us/dynamics-365" target="_blank">
-    <img src="./icons/dynamics365.png" width="50" height="50" alt="MS Dynamics 365" style="margin-bottom: 5px;" />
-  </a>
-</p>
+<img width="128" height="128" alt="excel" src="https://github.com/user-attachments/assets/dee915cd-8df1-4ced-af62-3b9040425510" />
 
 #### 🛠️ Dev & Productivity
 <p align="left">
