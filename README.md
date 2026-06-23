@@ -1,6 +1,3 @@
-<p align="center">
-  <img src="./assets/banner.png" alt="Frank Oduro banner" width="100%" />
-</p>
 # ☕ Ghana Procurement Management System — Java
 
 > A command-line procurement management system built in Java — linking all 7 portfolio projects into one program.
