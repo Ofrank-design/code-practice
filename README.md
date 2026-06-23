@@ -1,6 +1,6 @@
 # ☕ Ghana Procurement Management System  Java
 
-> A command-line procurement management system built in Java — linking all 7 portfolio projects into one program.
+> A command-line procurement management system built in Java linking all 7 portfolio projects into one program.
 
 **By [Frank Oduro](https://ofrank-design.github.io) · KSTU BSc Procurement & Supply Chain Management · Ghana 🇬🇭**
 
