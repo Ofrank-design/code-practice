@@ -1,4 +1,4 @@
-# 🔷 Ghana Procurement Toolkit — TypeScript
+# 🔷 Ghana Procurement Toolkit  TypeScript
 
 > Typed interfaces, sorting algorithms, e-GP tender tracker, and spend dashboard all in one TypeScript file.
 
