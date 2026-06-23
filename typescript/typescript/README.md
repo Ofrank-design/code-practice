@@ -93,7 +93,7 @@ interface SpendCategory{ name, budget, actual, variance, suppliers }
 
 ## About
 
-Part of the `code-practice` polyglot repo — TypeScript after Java, showing typed systems thinking in a procurement context.
+Part of the `code-practice` polyglot repo TypeScript after Java, showing typed systems thinking in a procurement context.
 
 - 🌐 [Portfolio](https://ofrank-design.github.io)
 - 🐙 [GitHub](https://github.com/Ofrank-design)
