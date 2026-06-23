@@ -87,7 +87,7 @@ abc <- ifelse(cum_pct <= 70, "A",
 
 ## About
 
-Part of the `code-practice` polyglot repo — R for statistical analysis after Java and TypeScript.
+Part of the `code-practice` polyglot repo  R for statistical analysis after Java and TypeScript.
 
 - 🌐 [Portfolio](https://ofrank-design.github.io)
 - 🐙 [GitHub](https://github.com/Ofrank-design)
