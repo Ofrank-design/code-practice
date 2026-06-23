@@ -1,0 +1,584 @@
+import java.util.*;
+import java.text.DecimalFormat;
+
+/**
+ * ╔══════════════════════════════════════════════════════════════╗
+ * ║         GHANA PROCUREMENT MANAGEMENT SYSTEM v1.0            ║
+ * ║         Frank Oduro · KSTU BSc Procurement & SCM            ║
+ * ║         Links all 7 Portfolio Projects · Acts 663 & 914     ║
+ * ╚══════════════════════════════════════════════════════════════╝
+ *
+ * PROJECT LINKS:
+ * → Project 1 : ERP / P2P Workflow     (PurchaseOrder.java)
+ * → Project 2 : Contract Management    (Contract.java)
+ * → Project 3 : Supplier Scorecard     (Supplier.java)
+ * → Project 4 : Inventory Optimization (InventoryItem.java)
+ * → Project 5 : Spend Analytics        (SpendAnalyzer.java)
+ * → Project 6 : Strategic Sourcing     (CategoryManager.java)
+ * → Project 7 : Tender Risk Assessment (TenderAssessor.java)
+ */
+public class ProcurementSystem {
+
+    static final String GOLD    = "\u001B[33m";
+    static final String GREEN   = "\u001B[32m";
+    static final String CYAN    = "\u001B[36m";
+    static final String RED     = "\u001B[31m";
+    static final String PURPLE  = "\u001B[35m";
+    static final String WHITE   = "\u001B[37m";
+    static final String BOLD    = "\u001B[1m";
+    static final String RESET   = "\u001B[0m";
+    static final String DIM     = "\u001B[2m";
+
+    static final DecimalFormat GHS = new DecimalFormat("GHS #,##0.00");
+    static final Scanner scanner   = new Scanner(System.in);
+
+    // ── SHARED DATA STORE ──────────────────────────────────────
+    static List<Supplier>       suppliers    = new ArrayList<>();
+    static List<InventoryItem>  inventory    = new ArrayList<>();
+    static List<PurchaseOrder>  orders       = new ArrayList<>();
+    static List<Contract>       contracts    = new ArrayList<>();
+    static List<Tender>         tenders      = new ArrayList<>();
+
+    public static void main(String[] args) {
+        seedData();
+        printBanner();
+        mainMenu();
+    }
+
+    // ══════════════════════════════════════════════════════════
+    //  BANNER
+    // ══════════════════════════════════════════════════════════
+    static void printBanner() {
+        System.out.println(GOLD + BOLD);
+        System.out.println("  ╔══════════════════════════════════════════════════════╗");
+        System.out.println("  ║    GHANA PROCUREMENT MANAGEMENT SYSTEM  v1.0        ║");
+        System.out.println("  ║    Frank Oduro · KSTU · Kumasi, Ghana 🇬🇭           ║");
+        System.out.println("  ║    Built on: Java · Acts 663 & 914 · 7 Projects     ║");
+        System.out.println("  ╚══════════════════════════════════════════════════════╝");
+        System.out.println(RESET);
+        System.out.println(DIM + "  github.com/Ofrank-design · ofrank-design.github.io" + RESET);
+        System.out.println();
+    }
+
+    // ══════════════════════════════════════════════════════════
+    //  MAIN MENU
+    // ══════════════════════════════════════════════════════════
+    static void mainMenu() {
+        while (true) {
+            System.out.println(CYAN + BOLD + "\n  ══ MAIN MENU ══════════════════════════════" + RESET);
+            System.out.println(GOLD  + "  [1]" + WHITE + " Inventory & EOQ Calculator    " + DIM + "→ Project 4" + RESET);
+            System.out.println(GOLD  + "  [2]" + WHITE + " Supplier Scorecard Dashboard  " + DIM + "→ Project 3" + RESET);
+            System.out.println(GOLD  + "  [3]" + WHITE + " Purchase Order Manager        " + DIM + "→ Project 1" + RESET);
+            System.out.println(GOLD  + "  [4]" + WHITE + " Contract Register             " + DIM + "→ Project 2" + RESET);
+            System.out.println(GOLD  + "  [5]" + WHITE + " Spend Analyzer                " + DIM + "→ Project 5" + RESET);
+            System.out.println(GOLD  + "  [6]" + WHITE + " Category Sourcing Matrix      " + DIM + "→ Project 6" + RESET);
+            System.out.println(GOLD  + "  [7]" + WHITE + " Tender Risk Assessor          " + DIM + "→ Project 7" + RESET);
+            System.out.println(GOLD  + "  [8]" + WHITE + " Full Portfolio Summary" + RESET);
+            System.out.println(RED   + "  [0]" + WHITE + " Exit" + RESET);
+            System.out.println(CYAN  + "  ════════════════════════════════════════════" + RESET);
+            System.out.print(GOLD + "  Select › " + RESET);
+
+            String input = scanner.nextLine().trim();
+            switch (input) {
+                case "1" -> inventoryMenu();
+                case "2" -> supplierMenu();
+                case "3" -> purchaseOrderMenu();
+                case "4" -> contractMenu();
+                case "5" -> spendAnalyzer();
+                case "6" -> categoryMatrix();
+                case "7" -> tenderRiskMenu();
+                case "8" -> portfolioSummary();
+                case "0" -> { printBye(); return; }
+                default  -> System.out.println(RED + "  ✗ Invalid option. Try again." + RESET);
+            }
+        }
+    }
+
+    // ══════════════════════════════════════════════════════════
+    //  PROJECT 4 — INVENTORY & EOQ
+    // ══════════════════════════════════════════════════════════
+    static void inventoryMenu() {
+        sectionHeader("📦 INVENTORY & EOQ CALCULATOR", "Project 4 — Inventory Optimization Model");
+        while (true) {
+            System.out.println(CYAN + "\n  [1] View inventory  [2] Add item  [3] EOQ calculator  [4] ABC analysis  [0] Back" + RESET);
+            System.out.print(GOLD + "  › " + RESET);
+            switch (scanner.nextLine().trim()) {
+                case "1" -> viewInventory();
+                case "2" -> addInventoryItem();
+                case "3" -> eoqCalculator();
+                case "4" -> abcAnalysis();
+                case "0" -> { return; }
+            }
+        }
+    }
+
+    static void viewInventory() {
+        System.out.println(CYAN + "\n  ── INVENTORY LIST ─────────────────────────────────────" + RESET);
+        System.out.printf(BOLD + "  %-20s %-10s %-12s %-10s %-8s%n" + RESET,
+                "Item", "Stock", "Unit Price", "Value", "Class");
+        System.out.println(DIM + "  ─────────────────────────────────────────────────────────" + RESET);
+        inventory.forEach(item -> {
+            String color = item.abcClass.equals("A") ? GOLD : item.abcClass.equals("B") ? CYAN : DIM;
+            System.out.printf("  %-20s %-10d %-12s %-10s " + color + "%-8s" + RESET + "%n",
+                    item.name, item.stock,
+                    GHS.format(item.unitPrice),
+                    GHS.format(item.stock * item.unitPrice),
+                    item.abcClass);
+        });
+        double total = inventory.stream().mapToDouble(i -> i.stock * i.unitPrice).sum();
+        System.out.println(DIM + "  ─────────────────────────────────────────────────────────" + RESET);
+        System.out.println(GOLD + BOLD + "  Total Inventory Value: " + GHS.format(total) + RESET);
+    }
+
+    static void addInventoryItem() {
+        System.out.print(CYAN + "\n  Item name: " + RESET); String name = scanner.nextLine();
+        System.out.print(CYAN + "  Current stock (units): " + RESET); int stock = Integer.parseInt(scanner.nextLine());
+        System.out.print(CYAN + "  Unit price (GHS): " + RESET); double price = Double.parseDouble(scanner.nextLine());
+        System.out.print(CYAN + "  Annual demand (units): " + RESET); int demand = Integer.parseInt(scanner.nextLine());
+        System.out.print(CYAN + "  Ordering cost (GHS): " + RESET); double orderCost = Double.parseDouble(scanner.nextLine());
+        System.out.print(CYAN + "  Holding cost per unit/year (GHS): " + RESET); double holdCost = Double.parseDouble(scanner.nextLine());
+
+        double eoq = Math.sqrt((2.0 * demand * orderCost) / holdCost);
+        String abc = price * demand > 50000 ? "A" : price * demand > 10000 ? "B" : "C";
+        inventory.add(new InventoryItem(name, stock, price, demand, orderCost, holdCost, abc));
+
+        System.out.println(GREEN + "\n  ✅ Item added!" + RESET);
+        System.out.println(GOLD  + "  EOQ: " + (int) eoq + " units · ABC Class: " + abc + RESET);
+    }
+
+    static void eoqCalculator() {
+        sectionHeader("EOQ CALCULATOR", "Economic Order Quantity · Safety Stock · Reorder Point");
+        System.out.print(CYAN + "  Annual demand (D): " + RESET); double D = Double.parseDouble(scanner.nextLine());
+        System.out.print(CYAN + "  Ordering cost (S) GHS: " + RESET); double S = Double.parseDouble(scanner.nextLine());
+        System.out.print(CYAN + "  Holding cost/unit/year (H) GHS: " + RESET); double H = Double.parseDouble(scanner.nextLine());
+        System.out.print(CYAN + "  Unit price (P) GHS: " + RESET); double P = Double.parseDouble(scanner.nextLine());
+        System.out.print(CYAN + "  Lead time (days): " + RESET); double LT = Double.parseDouble(scanner.nextLine());
+        System.out.print(CYAN + "  Safety stock buffer (days): " + RESET); double SS_days = Double.parseDouble(scanner.nextLine());
+
+        double eoq          = Math.sqrt((2 * D * S) / H);
+        double dailyDemand  = D / 365;
+        double safetyStock  = dailyDemand * SS_days;
+        double rop          = (dailyDemand * LT) + safetyStock;
+        double ordersPerYear = D / eoq;
+        double totalCost    = (ordersPerYear * S) + ((eoq / 2) * H);
+
+        System.out.println(GOLD + BOLD + "\n  ── EOQ RESULTS ──────────────────────────────" + RESET);
+        printResult("EOQ (units per order)",        String.format("%.0f units", eoq));
+        printResult("Safety Stock",                 String.format("%.0f units", safetyStock));
+        printResult("Reorder Point",                String.format("%.0f units", rop));
+        printResult("Orders per Year",              String.format("%.1f orders", ordersPerYear));
+        printResult("Annual Inventory Cost",        GHS.format(totalCost));
+        printResult("Order Cycle",                  String.format("%.0f days", 365 / ordersPerYear));
+        System.out.println(DIM + "\n  Formula: EOQ = √(2DS/H) · Ghana PPA Acts 663 & 914" + RESET);
+    }
+
+    static void abcAnalysis() {
+        sectionHeader("ABC ANALYSIS", "Pareto Classification — A: 70-80% value, B: 15-25%, C: 5%");
+        long aCount = inventory.stream().filter(i -> i.abcClass.equals("A")).count();
+        long bCount = inventory.stream().filter(i -> i.abcClass.equals("B")).count();
+        long cCount = inventory.stream().filter(i -> i.abcClass.equals("C")).count();
+        double aVal = inventory.stream().filter(i -> i.abcClass.equals("A")).mapToDouble(i -> i.stock * i.unitPrice).sum();
+        double bVal = inventory.stream().filter(i -> i.abcClass.equals("B")).mapToDouble(i -> i.stock * i.unitPrice).sum();
+        double cVal = inventory.stream().filter(i -> i.abcClass.equals("C")).mapToDouble(i -> i.stock * i.unitPrice).sum();
+
+        System.out.println(GOLD  + "\n  Class A — High Value · " + aCount + " items · " + GHS.format(aVal) + RESET);
+        System.out.println(CYAN  + "  Class B — Medium Value · " + bCount + " items · " + GHS.format(bVal) + RESET);
+        System.out.println(DIM   + "  Class C — Low Value · " + cCount + " items · " + GHS.format(cVal) + RESET);
+        System.out.println(GREEN + "\n  ✅ Review A items weekly · B items monthly · C items quarterly" + RESET);
+    }
+
+    // ══════════════════════════════════════════════════════════
+    //  PROJECT 3 — SUPPLIER SCORECARD
+    // ══════════════════════════════════════════════════════════
+    static void supplierMenu() {
+        sectionHeader("⚠️  SUPPLIER SCORECARD DASHBOARD", "Project 3 — Weighted KPI Scoring · Acts 663 & 914");
+        while (true) {
+            System.out.println(CYAN + "\n  [1] View all scores  [2] Add supplier  [3] Risk summary  [0] Back" + RESET);
+            System.out.print(GOLD + "  › " + RESET);
+            switch (scanner.nextLine().trim()) {
+                case "1" -> viewSuppliers();
+                case "2" -> addSupplier();
+                case "3" -> supplierRiskSummary();
+                case "0" -> { return; }
+            }
+        }
+    }
+
+    static void viewSuppliers() {
+        System.out.println(CYAN + "\n  ── SUPPLIER SCORECARDS ───────────────────────────────────────────────" + RESET);
+        System.out.printf(BOLD + "  %-22s %-8s %-8s %-10s %-12s %-8s %-8s%n" + RESET,
+                "Supplier", "Delivery", "Quality", "Financial", "Compliance", "Score", "Risk");
+        System.out.println(DIM + "  ─────────────────────────────────────────────────────────────────────" + RESET);
+        suppliers.forEach(s -> {
+            double score = s.weightedScore();
+            String risk  = score >= 7 ? GREEN + "LOW" : score >= 4 ? GOLD + "MEDIUM" : RED + "HIGH";
+            System.out.printf("  %-22s %-8.1f %-8.1f %-10.1f %-12.1f " + BOLD + "%-8.1f " + RESET + risk + RESET + "%n",
+                    s.name, s.delivery, s.quality, s.financial, s.compliance, score);
+        });
+    }
+
+    static void addSupplier() {
+        System.out.print(CYAN + "\n  Supplier name: " + RESET); String name = scanner.nextLine();
+        System.out.print(CYAN + "  Delivery score (1-10): " + RESET); double d = Double.parseDouble(scanner.nextLine());
+        System.out.print(CYAN + "  Quality score (1-10): " + RESET); double q = Double.parseDouble(scanner.nextLine());
+        System.out.print(CYAN + "  Financial stability (1-10): " + RESET); double f = Double.parseDouble(scanner.nextLine());
+        System.out.print(CYAN + "  Compliance score (1-10): " + RESET); double c = Double.parseDouble(scanner.nextLine());
+        suppliers.add(new Supplier(name, d, q, f, c));
+        double score = new Supplier(name, d, q, f, c).weightedScore();
+        System.out.println(GREEN + "\n  ✅ Supplier added! Weighted Score: " + String.format("%.1f", score) + "/10" + RESET);
+    }
+
+    static void supplierRiskSummary() {
+        long high   = suppliers.stream().filter(s -> s.weightedScore() < 4).count();
+        long medium = suppliers.stream().filter(s -> s.weightedScore() >= 4 && s.weightedScore() < 7).count();
+        long low    = suppliers.stream().filter(s -> s.weightedScore() >= 7).count();
+        System.out.println(GREEN + "\n  Low Risk:    " + low    + " supplier(s)" + RESET);
+        System.out.println(GOLD  + "  Medium Risk: " + medium + " supplier(s)" + RESET);
+        System.out.println(RED   + "  High Risk:   " + high   + " supplier(s) — Review immediately!" + RESET);
+        System.out.println(DIM   + "\n  Weights: Delivery 30% · Quality 30% · Financial 20% · Compliance 20%" + RESET);
+    }
+
+    // ══════════════════════════════════════════════════════════
+    //  PROJECT 1 — PURCHASE ORDERS
+    // ══════════════════════════════════════════════════════════
+    static void purchaseOrderMenu() {
+        sectionHeader("🔃 PURCHASE ORDER MANAGER", "Project 1 — SAP MM P2P Workflow Simulation");
+        while (true) {
+            System.out.println(CYAN + "\n  [1] View POs  [2] Create PO  [3] Approve PO  [0] Back" + RESET);
+            System.out.print(GOLD + "  › " + RESET);
+            switch (scanner.nextLine().trim()) {
+                case "1" -> viewPOs();
+                case "2" -> createPO();
+                case "3" -> approvePO();
+                case "0" -> { return; }
+            }
+        }
+    }
+
+    static void viewPOs() {
+        System.out.println(CYAN + "\n  ── PURCHASE ORDERS ──────────────────────────────────────" + RESET);
+        System.out.printf(BOLD + "  %-8s %-20s %-18s %-14s %-10s%n" + RESET,
+                "PO No.", "Supplier", "Item", "Value", "Status");
+        System.out.println(DIM + "  ──────────────────────────────────────────────────────────" + RESET);
+        orders.forEach(po -> {
+            String color = po.status.equals("APPROVED") ? GREEN : po.status.equals("PENDING") ? GOLD : RED;
+            System.out.printf("  %-8s %-20s %-18s %-14s " + color + "%-10s" + RESET + "%n",
+                    po.poNumber, po.supplierName, po.itemDescription,
+                    GHS.format(po.value), po.status);
+        });
+    }
+
+    static void createPO() {
+        System.out.print(CYAN + "\n  Supplier name: " + RESET); String supplier = scanner.nextLine();
+        System.out.print(CYAN + "  Item description: " + RESET); String item = scanner.nextLine();
+        System.out.print(CYAN + "  Quantity: " + RESET); int qty = Integer.parseInt(scanner.nextLine());
+        System.out.print(CYAN + "  Unit price (GHS): " + RESET); double price = Double.parseDouble(scanner.nextLine());
+        String poNum = "PO-2026-" + String.format("%03d", orders.size() + 1);
+        orders.add(new PurchaseOrder(poNum, supplier, item, qty, price));
+        System.out.println(GREEN + "\n  ✅ PO Created: " + poNum + " · Value: " + GHS.format(qty * price) + RESET);
+        System.out.println(DIM   + "  Status: PENDING APPROVAL · Ghana PPA Act 663 threshold check required" + RESET);
+    }
+
+    static void approvePO() {
+        System.out.print(CYAN + "\n  Enter PO number to approve: " + RESET);
+        String poNum = scanner.nextLine().trim().toUpperCase();
+        orders.stream().filter(po -> po.poNumber.equals(poNum)).findFirst().ifPresentOrElse(
+            po -> { po.status = "APPROVED"; System.out.println(GREEN + "  ✅ " + poNum + " approved!" + RESET); },
+            () -> System.out.println(RED + "  ✗ PO not found." + RESET)
+        );
+    }
+
+    // ══════════════════════════════════════════════════════════
+    //  PROJECT 2 — CONTRACTS
+    // ══════════════════════════════════════════════════════════
+    static void contractMenu() {
+        sectionHeader("📜 CONTRACT REGISTER", "Project 2 — Mock SLA & Contract Management");
+        while (true) {
+            System.out.println(CYAN + "\n  [1] View contracts  [2] Add contract  [0] Back" + RESET);
+            System.out.print(GOLD + "  › " + RESET);
+            switch (scanner.nextLine().trim()) {
+                case "1" -> viewContracts();
+                case "2" -> addContract();
+                case "0" -> { return; }
+            }
+        }
+    }
+
+    static void viewContracts() {
+        System.out.println(CYAN + "\n  ── CONTRACT REGISTER ────────────────────────────────────────" + RESET);
+        System.out.printf(BOLD + "  %-12s %-20s %-15s %-12s %-10s%n" + RESET,
+                "Ref", "Supplier", "Type", "Value", "Status");
+        System.out.println(DIM + "  ───────────────────────────────────────────────────────────" + RESET);
+        contracts.forEach(c -> {
+            String color = c.status.equals("ACTIVE") ? GREEN : c.status.equals("DRAFT") ? GOLD : RED;
+            System.out.printf("  %-12s %-20s %-15s %-12s " + color + "%-10s" + RESET + "%n",
+                    c.reference, c.supplierName, c.type, GHS.format(c.value), c.status);
+        });
+    }
+
+    static void addContract() {
+        System.out.print(CYAN + "\n  Contract reference: " + RESET); String ref = scanner.nextLine();
+        System.out.print(CYAN + "  Supplier name: " + RESET); String sup = scanner.nextLine();
+        System.out.print(CYAN + "  Contract type (SLA/FRAMEWORK/SUPPLY): " + RESET); String type = scanner.nextLine();
+        System.out.print(CYAN + "  Value (GHS): " + RESET); double val = Double.parseDouble(scanner.nextLine());
+        contracts.add(new Contract(ref, sup, type.toUpperCase(), val, "DRAFT"));
+        System.out.println(GREEN + "\n  ✅ Contract added as DRAFT · Reference: " + ref + RESET);
+        System.out.println(DIM   + "  Next: Legal review → Approval → Activate · Acts 663 & 914" + RESET);
+    }
+
+    // ══════════════════════════════════════════════════════════
+    //  PROJECT 5 — SPEND ANALYZER
+    // ══════════════════════════════════════════════════════════
+    static void spendAnalyzer() {
+        sectionHeader("📊 SPEND ANALYZER", "Project 5 — Ghana Procurement Spend Dashboard");
+        double totalPOValue     = orders.stream().mapToDouble(po -> po.value).sum();
+        double approvedValue    = orders.stream().filter(po -> po.status.equals("APPROVED")).mapToDouble(po -> po.value).sum();
+        double pendingValue     = orders.stream().filter(po -> po.status.equals("PENDING")).mapToDouble(po -> po.value).sum();
+        double contractValue    = contracts.stream().mapToDouble(c -> c.value).sum();
+        double inventoryValue   = inventory.stream().mapToDouble(i -> i.stock * i.unitPrice).sum();
+
+        System.out.println(GOLD + BOLD + "\n  ── SPEND SUMMARY ────────────────────────────" + RESET);
+        printResult("Total PO Spend",          GHS.format(totalPOValue));
+        printResult("Approved PO Value",        GHS.format(approvedValue));
+        printResult("Pending Approval",         GHS.format(pendingValue));
+        printResult("Contract Portfolio Value", GHS.format(contractValue));
+        printResult("Inventory Asset Value",    GHS.format(inventoryValue));
+        printResult("Total Portfolio Value",    GHS.format(totalPOValue + contractValue + inventoryValue));
+
+        System.out.println(CYAN + BOLD + "\n  ── CATEGORY BREAKDOWN ───────────────────────" + RESET);
+        Map<String, Double> categories = new LinkedHashMap<>();
+        categories.put("Medical Supplies",  320000.0);
+        categories.put("IT Equipment",      210000.0);
+        categories.put("Office Supplies",    95000.0);
+        categories.put("Maintenance",       150000.0);
+        categories.put("Logistics",         180000.0);
+        double catTotal = categories.values().stream().mapToDouble(Double::doubleValue).sum();
+        categories.forEach((cat, val) -> {
+            int bars = (int)((val / catTotal) * 30);
+            String bar = "█".repeat(bars) + "░".repeat(30 - bars);
+            System.out.printf("  %-18s " + GOLD + "%s" + RESET + " %s%n",
+                    cat, bar, GHS.format(val));
+        });
+        System.out.println(DIM + "\n  Source: Ghana e-GP portal data · PSCM 365 · Project 5" + RESET);
+    }
+
+    // ══════════════════════════════════════════════════════════
+    //  PROJECT 6 — CATEGORY SOURCING MATRIX
+    // ══════════════════════════════════════════════════════════
+    static void categoryMatrix() {
+        sectionHeader("🎯 CATEGORY SOURCING MATRIX", "Project 6 — CIPS 7-Step Framework · TCO Modelling");
+        System.out.println(CYAN + "\n  Kraljic Matrix — Supply Risk vs Spend Impact" + RESET);
+        System.out.println(DIM + "  ─────────────────────────────────────────────────────────────" + RESET);
+        System.out.printf(BOLD + "  %-22s %-14s %-14s %-16s%n" + RESET,
+                "Category", "Spend Impact", "Supply Risk", "Strategy");
+        System.out.println(DIM + "  ─────────────────────────────────────────────────────────────" + RESET);
+
+        Object[][] matrix = {
+            {"Medical Supplies",   "HIGH",   "HIGH",   GREEN  + "Strategic Partnership"},
+            {"IT Equipment",       "HIGH",   "LOW",    CYAN   + "Leverage Suppliers"},
+            {"Office Supplies",    "LOW",    "LOW",    DIM    + "Streamline/Automate"},
+            {"Maintenance Parts",  "LOW",    "HIGH",   GOLD   + "Reduce Dependency"},
+            {"Logistics Services", "MEDIUM", "MEDIUM", PURPLE + "Balanced Approach"},
+        };
+
+        for (Object[] row : matrix) {
+            System.out.printf("  %-22s %-14s %-14s %s%n" + RESET,
+                    row[0], row[1], row[2], row[3]);
+        }
+        System.out.println(DIM + "\n  CIPS 7-Step: Profile → Analysis → Strategy → Sourcing → Negotiation → Contract → Review" + RESET);
+    }
+
+    // ══════════════════════════════════════════════════════════
+    //  PROJECT 7 — TENDER RISK ASSESSOR
+    // ══════════════════════════════════════════════════════════
+    static void tenderRiskMenu() {
+        sectionHeader("🔒 TENDER RISK ASSESSOR", "Project 7 — Ghana PPA Acts 663 & 914 Compliance");
+        while (true) {
+            System.out.println(CYAN + "\n  [1] View tenders  [2] Assess new tender  [3] Compliance check  [0] Back" + RESET);
+            System.out.print(GOLD + "  › " + RESET);
+            switch (scanner.nextLine().trim()) {
+                case "1" -> viewTenders();
+                case "2" -> assessTender();
+                case "3" -> complianceCheck();
+                case "0" -> { return; }
+            }
+        }
+    }
+
+    static void viewTenders() {
+        System.out.println(CYAN + "\n  ── TENDER REGISTER ──────────────────────────────────────────" + RESET);
+        System.out.printf(BOLD + "  %-14s %-22s %-12s %-10s %-10s%n" + RESET,
+                "Ref", "Description", "Value", "Stage", "Risk");
+        System.out.println(DIM + "  ────────────────────────────────────────────────────────────" + RESET);
+        tenders.forEach(t -> {
+            String riskColor = t.riskLevel.equals("LOW") ? GREEN : t.riskLevel.equals("MEDIUM") ? GOLD : RED;
+            System.out.printf("  %-14s %-22s %-12s %-10s " + riskColor + "%-10s" + RESET + "%n",
+                    t.reference, t.description, GHS.format(t.value), t.stage, t.riskLevel);
+        });
+    }
+
+    static void assessTender() {
+        System.out.print(CYAN + "\n  Tender reference: " + RESET); String ref = scanner.nextLine();
+        System.out.print(CYAN + "  Description: " + RESET); String desc = scanner.nextLine();
+        System.out.print(CYAN + "  Estimated value (GHS): " + RESET); double val = Double.parseDouble(scanner.nextLine());
+        System.out.print(CYAN + "  Stage (ADVERTISED/BID OPEN/EVALUATION/AWARDED): " + RESET); String stage = scanner.nextLine();
+
+        System.out.println(GOLD + "\n  ── RISK ASSESSMENT CHECKLIST ──────────────────" + RESET);
+        int score = 0;
+        String[] checks = {
+            "Is this tender published on Ghana e-GP portal?",
+            "Does value exceed Acts 663 & 914 threshold?",
+            "Were at least 3 quotations obtained (RFQ rule)?",
+            "Has PPA approval been sought for sole source?",
+            "Is there a signed conflict of interest declaration?"
+        };
+        for (String check : checks) {
+            System.out.print(CYAN + "  " + check + " (y/n): " + RESET);
+            if (scanner.nextLine().trim().equalsIgnoreCase("y")) score++;
+        }
+
+        String risk = score >= 4 ? "LOW" : score >= 2 ? "MEDIUM" : "HIGH";
+        String riskColor = risk.equals("LOW") ? GREEN : risk.equals("MEDIUM") ? GOLD : RED;
+        tenders.add(new Tender(ref, desc, val, stage.toUpperCase(), risk));
+
+        System.out.println(riskColor + BOLD + "\n  Risk Level: " + risk + " (" + score + "/5 checks passed)" + RESET);
+        System.out.println(DIM + "  Reference: Acts 663 & 914 · Ghana e-GP · UN Global Compact" + RESET);
+    }
+
+    static void complianceCheck() {
+        sectionHeader("GHANA PPA COMPLIANCE CHECKER", "Acts 663 & 914 · e-GP Portal Requirements");
+        System.out.println(GOLD  + "\n  ── PROCUREMENT METHOD THRESHOLDS ───────────────────────" + RESET);
+        System.out.printf("  %-30s %-20s%n", "Method", "Threshold");
+        System.out.println(DIM + "  ─────────────────────────────────────────────────────" + RESET);
+        System.out.printf("  %-30s %s%n", "Request for Quotations (RFQ)", "Up to GHS 50,000");
+        System.out.printf("  %-30s %s%n", "Restricted Tendering",         "GHS 50,001–500,000");
+        System.out.printf("  %-30s %s%n", "National Competitive Tender",  "GHS 500,001–5,000,000");
+        System.out.printf("  %-30s %s%n", "International Competitive",    "Above GHS 5,000,000");
+        System.out.printf("  %-30s %s%n", "Single Source (PPA approval)", "Any value — restricted");
+
+        System.out.println(GOLD + "\n  ── KEY ACT 914 REQUIREMENTS ────────────────────────────" + RESET);
+        System.out.println(GREEN + "  ✅ All tenders must be published on Ghana e-GP portal");
+        System.out.println(GREEN + "  ✅ Sole source above threshold requires PPA Board approval");
+        System.out.println(GREEN + "  ✅ Minimum 3 quotations required for RFQ method");
+        System.out.println(GREEN + "  ✅ All awards must be published within 5 working days");
+        System.out.println(GREEN + "  ✅ Conflict of interest declaration mandatory for all officers" + RESET);
+    }
+
+    // ══════════════════════════════════════════════════════════
+    //  PROJECT SUMMARY
+    // ══════════════════════════════════════════════════════════
+    static void portfolioSummary() {
+        sectionHeader("📋 FULL PORTFOLIO SUMMARY", "Frank Oduro · KSTU · 7 Projects · Acts 663 & 914");
+        System.out.println(GOLD + BOLD + "\n  ── SYSTEM STATISTICS ────────────────────────" + RESET);
+        printResult("Inventory Items",   inventory.size() + " items");
+        printResult("Suppliers Tracked", suppliers.size() + " suppliers");
+        printResult("Purchase Orders",   orders.size() + " POs");
+        printResult("Active Contracts",  contracts.size() + " contracts");
+        printResult("Tenders Assessed",  tenders.size() + " tenders");
+
+        System.out.println(CYAN + BOLD + "\n  ── 7 PROJECT STATUS ─────────────────────────" + RESET);
+        String[][] projects = {
+            {"01", "SAP MM P2P Workflow",           "Year 2 · 2027",   GOLD},
+            {"02", "Mock SLA & Negotiation",         "Year 2 · 2027",   GOLD},
+            {"03", "Supplier Scorecard Dashboard",   "Year 3 · 2028",   PURPLE},
+            {"04", "Inventory Optimization Model",   "✅ Completed",     GREEN},
+            {"05", "Ghana Spend Dashboard",          "Year 3 · 2028",   PURPLE},
+            {"06", "IT Category Management Plan",    "Year 4 · 2029",   GOLD},
+            {"07", "Tender Risk Assessment",         "Year 3 · 2028",   PURPLE},
+        };
+        for (String[] p : projects) {
+            System.out.printf("  " + BOLD + "%-4s" + RESET + "%-32s " + p[3] + "%-16s" + RESET + "%n",
+                    p[0], p[1], p[2]);
+        }
+        System.out.println(DIM + "\n  Portfolio: ofrank-design.github.io · GitHub: Ofrank-design" + RESET);
+    }
+
+    // ══════════════════════════════════════════════════════════
+    //  HELPERS
+    // ══════════════════════════════════════════════════════════
+    static void sectionHeader(String title, String subtitle) {
+        System.out.println(GOLD + BOLD + "\n  ╔══════════════════════════════════════════════╗");
+        System.out.println("  ║  " + title);
+        System.out.println("  ╚══════════════════════════════════════════════╝" + RESET);
+        System.out.println(DIM + "  " + subtitle + RESET);
+    }
+
+    static void printResult(String label, String value) {
+        System.out.printf("  " + WHITE + "%-30s" + RESET + GOLD + BOLD + "%s" + RESET + "%n", label + ":", value);
+    }
+
+    static void printBye() {
+        System.out.println(GOLD + BOLD + "\n  ╔══════════════════════════════════════════╗");
+        System.out.println("  ║  Thank you for using GPMS v1.0          ║");
+        System.out.println("  ║  Frank Oduro · KSTU · Kumasi, Ghana 🇬🇭 ║");
+        System.out.println("  ╚══════════════════════════════════════════╝" + RESET + "\n");
+    }
+
+    // ══════════════════════════════════════════════════════════
+    //  SEED DATA
+    // ══════════════════════════════════════════════════════════
+    static void seedData() {
+        suppliers.add(new Supplier("Accra Supplies Ltd",    8.0, 7.0, 6.0, 9.0));
+        suppliers.add(new Supplier("Kumasi Tech Hub",       5.0, 6.0, 4.0, 7.0));
+        suppliers.add(new Supplier("Tema Port Logistics",   3.0, 4.0, 3.0, 5.0));
+        suppliers.add(new Supplier("KSTU Medical Stores",   9.0, 8.0, 7.0, 9.0));
+
+        inventory.add(new InventoryItem("Surgical Gloves (box)",  500, 12.50, 2400, 60.0, 2.5,  "A"));
+        inventory.add(new InventoryItem("A4 Paper (ream)",        200, 8.00,  1200, 40.0, 1.5,  "B"));
+        inventory.add(new InventoryItem("Hand Sanitizer (500ml)", 150, 15.00, 800,  35.0, 3.0,  "A"));
+        inventory.add(new InventoryItem("Printer Toner",          50,  85.00, 300,  50.0, 8.0,  "B"));
+        inventory.add(new InventoryItem("Biro Pens (box)",        300, 3.50,  600,  20.0, 0.75, "C"));
+
+        orders.add(new PurchaseOrder("PO-2026-001", "Accra Supplies Ltd", "Surgical Gloves",  500,  12.50));
+        orders.add(new PurchaseOrder("PO-2026-002", "Kumasi Tech Hub",    "Laptop Computer",    5,  3500.00));
+        orders.get(0).status = "APPROVED";
+
+        contracts.add(new Contract("CON-2026-001", "Accra Supplies Ltd", "SUPPLY",    250000.0, "ACTIVE"));
+        contracts.add(new Contract("CON-2026-002", "Kumasi Tech Hub",    "SLA",       180000.0, "DRAFT"));
+
+        tenders.add(new Tender("MOH/2026/047", "Supply of Medical Equipment", 125000.0, "BID OPEN",   "MEDIUM"));
+        tenders.add(new Tender("GES/2026/012", "IT Equipment — GES",          380000.0, "EVALUATION", "LOW"));
+    }
+}
+
+// ══════════════════════════════════════════════════════════
+//  DATA MODELS
+// ══════════════════════════════════════════════════════════
+
+class Supplier {
+    String name; double delivery, quality, financial, compliance;
+    Supplier(String n, double d, double q, double f, double c) {
+        name = n; delivery = d; quality = q; financial = f; compliance = c;
+    }
+    double weightedScore() { return (delivery * 0.30) + (quality * 0.30) + (financial * 0.20) + (compliance * 0.20); }
+}
+
+class InventoryItem {
+    String name, abcClass; int stock; double unitPrice, annualDemand, orderCost, holdCost;
+    InventoryItem(String n, int s, double p, double d, double oc, double hc, String abc) {
+        name = n; stock = s; unitPrice = p; annualDemand = d; orderCost = oc; holdCost = hc; abcClass = abc;
+    }
+    double eoq() { return Math.sqrt((2 * annualDemand * orderCost) / holdCost); }
+}
+
+class PurchaseOrder {
+    String poNumber, supplierName, itemDescription, status; int quantity; double value;
+    PurchaseOrder(String po, String sup, String item, int qty, double price) {
+        poNumber = po; supplierName = sup; itemDescription = item;
+        quantity = qty; value = qty * price; status = "PENDING";
+    }
+}
+
+class Contract {
+    String reference, supplierName, type, status; double value;
+    Contract(String r, String s, String t, double v, String st) {
+        reference = r; supplierName = s; type = t; value = v; status = st;
+    }
+}
+
+class Tender {
+    String reference, description, stage, riskLevel; double value;
+    Tender(String r, String d, double v, String s, String rl) {
+        reference = r; description = d; value = v; stage = s; riskLevel = rl;
+    }
+}
