@@ -1,6 +1,6 @@
-# 💎 Ghana Procurement Analytics — R
+# 💎 Ghana Procurement Analytics R
 
-> Statistical analysis, demand forecasting, EOQ calculations, ABC classification, and visualisation — all in one R script.
+> Statistical analysis, demand forecasting, EOQ calculations, ABC classification, and visualisation  all in one R script.
 
 **By [Frank Oduro](https://ofrank-design.github.io) · KSTU BSc Procurement & Supply Chain Management · Ghana 🇬🇭**
 
