@@ -96,6 +96,33 @@ Reorder Point = (Daily demand × Lead time) + Safety stock
 
 ---
 
+<h2 align="center"> 📈 GitHub Stats </h2>
+
+<p align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=Ofrank-design&show_icons=true&theme=chartreuse-dark&hide_border=true&count_private=true" width="48%"/>
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=Ofrank-design&theme=chartreuse-dark&hide_border=true" width="48%"/>
+</p>
+
+<p align="center">
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Ofrank-design&theme=chartreuse-dark&hide_border=true&layout=compact" width="50%"/>
+</p>
+
+---
+
+<h2 align="center">🏆 GitHub Trophies </h2>
+
+<p align="center">
+  <img src="https://github-trophies.vercel.app/?username=Ofrank-design&theme=matrix&no-frame=true&no-bg=true&column=6"/>
+</p>
+
+
+<h2 align="center">📈 Contribution Graph </h2>
+
+<p align="center">
+  <img src="https://github-readme-activity-graph.vercel.app/graph?username=Ofrank-design&theme=tokyo-night&hide_border=true"/>
+</p>
+
+
 ## About
 
 Built as part of the `code-practice` polyglot repo  demonstrating Java OOP in a procurement context before KSTU lectures begin.
