@@ -1,4 +1,4 @@
-# ☕ Ghana Procurement Management System — Java
+# ☕ Ghana Procurement Management System  Java
 
 > A command-line procurement management system built in Java — linking all 7 portfolio projects into one program.
 
