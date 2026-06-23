@@ -13,7 +13,7 @@ Four ideas in one clean file:
 | Section | What it does |
 |---|---|
 | 🏷️ **Typed Interfaces** | Strongly typed models for Supplier, PurchaseOrder, Contract, Tender, SpendCategory |
-| ⚙️ **Algorithms** | Bubble sort, quick sort, binary search, linear filter — all procurement-themed |
+| ⚙️ **Algorithms** | Bubble sort, quick sort, binary search, linear filter  all procurement-themed |
 | 📋 **e-GP Tender Tracker** | Ghana e-GP tenders with method, stage, compliance status, Acts 663 & 914 |
 | 📊 **Spend Dashboard** | Category breakdown with budget vs actual bar chart in the console |
 
