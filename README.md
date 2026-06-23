@@ -98,7 +98,7 @@ Reorder Point = (Daily demand × Lead time) + Safety stock
 
 ## About
 
-Built as part of the `code-practice` polyglot repo — demonstrating Java OOP in a procurement context before KSTU lectures begin.
+Built as part of the `code-practice` polyglot repo  demonstrating Java OOP in a procurement context before KSTU lectures begin.
 
 - 🌐 [Portfolio](https://ofrank-design.github.io)
 - 🐙 [GitHub](https://github.com/Ofrank-design)
