@@ -108,30 +108,37 @@ Built as part of the `code-practice` polyglot repo — demonstrating Java OOP in
 
 MIT License — free to fork and adapt. ⭐ Star appreciated.
 
-*Made in Kumasi, Ghana 🇬🇭*
-#### 📦 Procurement & Supply Chain
-<img src="./ghana-ppa.png" width=50 height=50 alt="Ghana PPA" style="margin-bottom: 5px;" />
-<img src="./ghana-egp.png" width=50 height=50 alt="Ghana e-GP" style="margin-bottom: 5px;" />
-<img src="./eoq.png" width=50 height=50 alt="EOQ Modelling" style="margin-bottom: 5px;" />
-<img src="./abc-analysis.png" width=50 height=50 alt="ABC Analysis" style="margin-bottom: 5px;" />
-<img src="./contract-management.png" width=50 height=50 alt="Contract Management" style="margin-bottom: 5px;" />
-<img src="./strategic-sourcing.png" width=50 height=50 alt="Strategic Sourcing" style="margin-bottom: 5px;" />
+*Made in Kumasi, Ghana 🇬🇭*#### 📦 Procurement & Supply Chain
+<p>
+  <img src="./ghana-ppa.png" width="50" height="50" alt="Ghana PPA" style="margin-right: 8px;" />
+  <img src="./ghana-egp.png" width="50" height="50" alt="Ghana e-GP" style="margin-right: 8px;" />
+  <img src="./eoq.png" width="50" height="50" alt="EOQ Modelling" style="margin-right: 8px;" />
+  <img src="./abc-analysis.png" width="50" height="50" alt="ABC Analysis" style="margin-right: 8px;" />
+  <img src="./contract-management.png" width="50" height="50" alt="Contract Management" style="margin-right: 8px;" />
+  <img src="./strategic-sourcing.png" width="50" height="50" alt="Strategic Sourcing" />
+</p>
 
 #### 📊 Analytics & Tools
-<img src="./excel.png" width=50 height=50 alt="Microsoft Excel" style="margin-bottom: 5px;" />
-<img src="./powerbi.png" width=50 height=50 alt="Power BI" style="margin-bottom: 5px;" />
-<img src="./python.png" width=50 height=50 alt="Python" style="margin-bottom: 5px;" />
-<img src="./javascript.png" width=50 height=50 alt="JavaScript" style="margin-bottom: 5px;" />
-<img src="./html5.png" width=50 height=50 alt="HTML5" style="margin-bottom: 5px;" />
+<p>
+  <img src="./excel.png" width="50" height="50" alt="Microsoft Excel" style="margin-right: 8px;" />
+  <img src="./powerbi.png" width="50" height="50" alt="Power BI" style="margin-right: 8px;" />
+  <img src="./python.png" width="50" height="50" alt="Python" style="margin-right: 8px;" />
+  <img src="./javascript.png" width="50" height="50" alt="JavaScript" style="margin-right: 8px;" />
+  <img src="./html5.png" width="50" height="50" alt="HTML5" />
+</p>
 
 #### ⚙️ ERP Systems
-<img src="./sap.png" width=50 height=50 alt="SAP MM" style="margin-bottom: 5px;" />
-<img src="./odoo.png" width=50 height=50 alt="Odoo" style="margin-bottom: 5px;" />
-<img src="./oracle.png" width=50 height=50 alt="Oracle Cloud" style="margin-bottom: 5px;" />
-<img src="./dynamics365.png" width=50 height=50 alt="MS Dynamics 365" style="margin-bottom: 5px;" />
+<p>
+  <img src="./sap.png" width="50" height="50" alt="SAP MM" style="margin-right: 8px;" />
+  <img src="./odoo.png" width="50" height="50" alt="Odoo" style="margin-right: 8px;" />
+  <img src="./oracle.png" width="50" height="50" alt="Oracle Cloud" style="margin-right: 8px;" />
+  <img src="./dynamics365.png" width="50" height="50" alt="MS Dynamics 365" />
+</p>
 
 #### 🛠️ Dev & Productivity
-<img src="./github.png" width=50 height=50 alt="GitHub" style="margin-bottom: 5px;" />
-<img src="./vscode.png" width=50 height=50 alt="VS Code" style="margin-bottom: 5px;" />
-<img src="./microsoft-learn.png" width=50 height=50 alt="Microsoft Learn" style="margin-bottom: 5px;" />
-<img src="./matplotlib.png" width=50 height=50 alt="Matplotlib" style="margin-bottom: 5px;" />
+<p>
+  <img src="./github.png" width="50" height="50" alt="GitHub" style="margin-right: 8px;" />
+  <img src="./vscode.png" width="50" height="50" alt="VS Code" style="margin-right: 8px;" />
+  <img src="./microsoft-learn.png" width="50" height="50" alt="Microsoft Learn" style="margin-right: 8px;" />
+  <img src="./matplotlib.png" width="50" height="50" alt="Matplotlib" />
+</p>
