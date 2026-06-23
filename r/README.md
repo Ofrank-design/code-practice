@@ -11,9 +11,9 @@
 | Section | What it does |
 |---|---|
 | 📊 **Descriptive Statistics** | Mean, median, SD, CV, growth rate on monthly spend |
-| 📈 **Demand Forecasting** | Linear regression model — forecast next 3 months |
+| 📈 **Demand Forecasting** | Linear regression model  forecast next 3 months |
 | 📦 **EOQ Calculations** | EOQ, safety stock, reorder point for 10 inventory items |
-| 🗂️ **ABC Analysis** | Pareto classification — A/B/C items by annual value |
+| 🗂️ **ABC Analysis** | Pareto classification  A/B/C items by annual value |
 | ⚠️ **Supplier Analysis** | Score ranking, correlation analysis, category spend |
 | 🖼️ **Visualisation** | 3 PNG charts saved automatically |
 
