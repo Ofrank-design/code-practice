@@ -98,7 +98,7 @@ def ppa_method(self) -> str:
 
 ## About
 
-Part of the `code-practice` polyglot repo — Python for data structures and analytics after Java, TypeScript, R and C++.
+Part of the `code-practice` polyglot repo Python for data structures and analytics after Java, TypeScript, R and C++.
 
 - 🌐 [Portfolio](https://ofrank-design.github.io)
 - 🐙 [GitHub](https://github.com/Ofrank-design)
