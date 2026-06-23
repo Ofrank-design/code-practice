@@ -1,6 +1,6 @@
-# 🐍 Ghana Procurement Analytics — Python
+# 🐍 Ghana Procurement Analytics  Python
 
-> OOP classes, data structures, algorithms, spend analytics, and tender tracking — all in one Python file.
+> OOP classes, data structures, algorithms, spend analytics, and tender tracking all in one Python file.
 
 **By [Frank Oduro](https://ofrank-design.github.io) · KSTU BSc Procurement & Supply Chain Management · Ghana 🇬🇭**
 
@@ -10,7 +10,7 @@
 
 | Module | What it covers | Project Link |
 |---|---|---|
-| 🗂️ **Data Structures** | Stack, Queue, Heap, Dictionary, Set — procurement-themed | All |
+| 🗂️ **Data Structures** | Stack, Queue, Heap, Dictionary, Set  procurement-themed | All |
 | ⚠️ **Supplier Dashboard** | Sorted scorecard, weighted KPI, risk classification | Project 3 |
 | 📦 **Inventory & EOQ** | EOQ, safety stock, reorder point, ABC analysis | Project 4 |
 | 🔃 **Purchase Orders** | P2P workflow, Acts 663 & 914 method thresholds | Project 1 |
