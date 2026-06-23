@@ -1,6 +1,6 @@
-# ☕ Ghana Procurement Management System — Java
+# ☕ Ghana Procurement Management System  Java
 
-> A command-line procurement management system built in Java — linking all 7 portfolio projects into one program.
+> A command-line procurement management system built in Java  linking all 7 portfolio projects into one program.
 
 **By [Frank Oduro](https://ofrank-design.github.io) · KSTU BSc Procurement & Supply Chain Management · Ghana 🇬🇭**
 
@@ -98,13 +98,13 @@ Reorder Point = (Daily demand × Lead time) + Safety stock
 
 ## About
 
-Built as part of the `code-practice` polyglot repo — demonstrating Java OOP in a procurement context before KSTU lectures begin.
+Built as part of the `code-practice` polyglot repo  demonstrating Java OOP in a procurement context before KSTU lectures begin.
 
 - 🌐 [Portfolio](https://ofrank-design.github.io)
 - 🐙 [GitHub](https://github.com/Ofrank-design)
 
 ---
 
-MIT License — free to fork and adapt. ⭐ Star appreciated.
+MIT License free to fork and adapt. ⭐ Star appreciated.
 
 *Made in Kumasi, Ghana 🇬🇭*
