@@ -1,6 +1,6 @@
 # 🔷 Ghana Procurement Toolkit — TypeScript
 
-> Typed interfaces, sorting algorithms, e-GP tender tracker, and spend dashboard — all in one TypeScript file.
+> Typed interfaces, sorting algorithms, e-GP tender tracker, and spend dashboard all in one TypeScript file.
 
 **By [Frank Oduro](https://ofrank-design.github.io) · KSTU BSc Procurement & Supply Chain Management · Ghana 🇬🇭**
 
