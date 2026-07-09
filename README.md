@@ -5,10 +5,7 @@
 **By [Frank Oduro](https://ofrank-design.github.io) · KSTU BSc Procurement & Supply Chain Management · Ghana 🇬🇭**
 
 ---
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
-  <path fill="#3ECF6E" d="M..." />
-  <path fill="#FFFFFF" d="M..." />
-</svg>
+
 ## What It Does
 
 One Java program. Seven procurement modules. All tied to real Ghana PPA Acts 663 & 914.
